@@ -33,7 +33,7 @@
             "description" => $job_description,
             "pre_timestmp" => $pre_timestmp,
             "pre_image_path" => readImage($pre_image_path),
-            "job_status_id" => $job_status_id
+            "job_status_name" => $job_status_name
         );
 
         array_push($response['data'], $item);

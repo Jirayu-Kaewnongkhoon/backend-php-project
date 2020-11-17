@@ -221,6 +221,25 @@
 
             return $stmt;
         }
+        
+        // Get Reports by month for Create PDF
+        public function getReportsByMonth($month) {
+            // Create query
+            $query = "CALL getReportsByMonth(:month);";
 
+            // Prepare statment
+            $stmt = $this->conn->prepare($query);
+
+            // Clean data
+            $month = htmlspecialchars(strip_tags($month));
+
+            // Bind data
+            $stmt->bindParam(':month', $month);
+
+            // Execute query
+            $stmt->execute();
+
+            return $stmt;
+        }
     }
 ?>

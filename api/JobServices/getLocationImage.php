@@ -7,7 +7,7 @@
     $response['data'] = array();
 
     $item = array(
-        'locationImage' => readImage('constant/map.png')
+        'locationImage' => readImage('constant/KMITL-SCI-MAP.png')
     );
 
     array_push($response['data'], $item);

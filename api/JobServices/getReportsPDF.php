@@ -1,6 +1,6 @@
 <?php
     header("Access-Control-Allow-Origin: *");
-    header("Content-type: application/pdf");
+    // header("Content-type: application/pdf");
     
     require_once('../../config/Database.php');
     include('../../models/JobRequest.php');
@@ -13,8 +13,11 @@
     // Instantiate JobRequest Object
     $jobRequest = new JobRequest($db);
 
+    // Get input data
+    $month = $_GET['month'];
+
     // Call function getReports()
-    $result = $jobRequest->getReports();
+    $result = $jobRequest->getReportsByMonth($month);
 
     $tableRows = "";
 

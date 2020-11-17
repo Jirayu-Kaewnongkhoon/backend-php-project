@@ -29,8 +29,8 @@
             "description" => $job_description,
             "pre_timestmp" => $pre_timestmp,
             "pre_image_path" => readImage($pre_image_path),
-            "requester_id" => $requester_id,
-            "staff_id" => $staff_id,
+            "requester_name" => $requester_name,
+            "staff_name" => $staff_name,
             "post_timestmp" => $post_timestmp == null ? '' : $post_timestmp,
             "post_image_path" => $post_image_path == null ? '' : readImage($post_image_path),
             "job_status_name" => $job_status_name

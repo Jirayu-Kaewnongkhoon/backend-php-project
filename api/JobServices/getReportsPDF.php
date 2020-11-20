@@ -1,6 +1,5 @@
 <?php
     header("Access-Control-Allow-Origin: *");
-    // header("Content-type: application/pdf");
     
     require_once('../../config/Database.php');
     include('../../models/JobRequest.php');
@@ -29,6 +28,7 @@
                 <td>".$job_description."</td>
                 <td>".$building."</td>
                 <td>".$pre_timestmp."</td>
+                <td>".$job_status_name."</td>
             </tr>
         ";
 

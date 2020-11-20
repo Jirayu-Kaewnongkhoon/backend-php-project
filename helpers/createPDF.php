@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
 <?php
     require_once('../../vendor/autoload.php');
 
     function createPDF($row) {
         
-        $font = "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\"> <link href=\"https://fonts.googleapis.com/css2?family=Sarabun:wght@300&display=swap\" rel=\"stylesheet\">";
+        $font = "
+            <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\"> 
+            <link href=\"https://fonts.googleapis.com/css2?family=Sarabun:wght@300&display=swap\" rel=\"stylesheet\">
+        ";
 
         $reports = "
             <head>
@@ -48,7 +40,7 @@
                     รายงานการแจ้งซ่อม
                 </h1>
                 <h2 class=\"datetime\">
-                    พิมพ์วันที่: ". date('d/m/Y') ." เวลา: ". date('H:i:s') ."
+                    พิมพ์วันที่: ". date('d/m/Y') ." เวลา: ". date('H:i:s') ." น.
                 </h2>
                 <table style='width:100%;'>
                     <thead>
@@ -56,6 +48,7 @@
                             <th>รายการแจ้งซ่อม</th>
                             <th>สถานที่</th>
                             <th>วันที่แจ้ง</th>
+                            <th>สถานะงาน</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,14 +58,15 @@
             </body>
         ";
 
-        // echo $reports;
+        echo $reports;
     
-        $mpdf = new \Mpdf\Mpdf(/* [
-            'default_font_size' => 14,
-            'default_font' => 'Garuda'
-        ] */);
+        // // Instantiate Mpdf Object
+        // $mpdf = new \Mpdf\Mpdf();
 
-        $mpdf->WriteHTML($reports);
-        $mpdf->Output('Reports '. date('Y-m-d H-i-s') .'.pdf', 'D');
+        // // Write PDF file with HTML
+        // $mpdf->WriteHTML($reports);
+
+        // // Save PDF file with force download 
+        // $mpdf->Output('Reports '. date('Y-m-d H-i-s') .'.pdf', 'D');
     }
 ?>

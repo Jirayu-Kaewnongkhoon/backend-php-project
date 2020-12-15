@@ -34,6 +34,7 @@
             "description" => $job_description,
             "pre_timestmp" => $pre_timestmp,
             "pre_image_path" => readImage($pre_image_path),
+            "post_timestmp" => $post_timestmp == null ? '' : $post_timestmp,
             "post_image_path" => $post_image_path == null ? '' : readImage($post_image_path),
             "job_status_id" => $job_status_id,
             "job_status_name" => $job_status_name

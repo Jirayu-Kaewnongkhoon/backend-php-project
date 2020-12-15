@@ -14,6 +14,7 @@
 
     // Get input data
     $month = $_GET['month'];
+    $downloader_name = $_GET['user_name'];
 
     // Call function getReports()
     $result = $jobRequest->getReportsByMonth($month);
@@ -34,6 +35,6 @@
 
     }
     
-    createPDF($tableRows);
+    createPDF($tableRows, $month, $downloader_name);
 
 ?>

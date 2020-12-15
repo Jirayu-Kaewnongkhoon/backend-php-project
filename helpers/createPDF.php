@@ -1,7 +1,8 @@
 <?php
     require_once('../../vendor/autoload.php');
+    include('../../helpers/month.php');
 
-    function createPDF($row) {
+    function createPDF($row, $month, $user_name) {
         
         $font = "
             <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\"> 
@@ -30,17 +31,20 @@
                     margin-bottom: 20px;
                 }
                 
-                .datetime {
+                .detail {
                     font-size: 20px;
                 }
             </style>
             
             <body>
                 <h1 class=\"header\">
-                    รายงานการแจ้งซ่อม
+                    รายงานการแจ้งซ่อม ประจำเดือน ". getMonth($month) ."
                 </h1>
-                <h2 class=\"datetime\">
+                <h2 class=\"detail\">
                     พิมพ์วันที่: ". date('d/m/Y') ." เวลา: ". date('H:i:s') ." น.
+                </h2>
+                <h2 class=\"detail\">
+                    ออกโดย: ". $user_name ."
                 </h2>
                 <table style='width:100%;'>
                     <thead>

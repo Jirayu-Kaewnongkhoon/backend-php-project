@@ -26,10 +26,10 @@
 
         $tableRows .= "
             <tr>
-                <td>".$job_description."</td>
-                <td>".$building."</td>
-                <td>".$pre_timestmp."</td>
-                <td>".$job_status_name."</td>
+                <td>". $job_description ."</td>
+                <td>". $building ."</td>
+                <td>". date_format(date_create_from_format("Y-m-d H:i:s", $pre_timestmp), "j M Y, H:i:s") ."</td>
+                <td>". $job_status_name ."</td>
             </tr>
         ";
 

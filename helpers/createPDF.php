@@ -11,13 +11,33 @@
 
         $reports = "
             <head>
-                " . $font ."
+                ". $font ."
             </head>
 
             <style>
                 body {
                     font-family: 'Sarabun', sans-serif;
                     padding: 10px 30px 10px 30px;
+                    border: 1px solid black;
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .header {
+                    text-align: center;
+                }
+
+                .header > h1 {
+                    font-size: 18px;
+                }
+                
+                .detail {
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .detail > h2 {
+                    font-size: 16px;
                 }
 
                 table, th, td {
@@ -25,27 +45,35 @@
                     border-collapse: collapse;
                     text-align: center;
                 }
-                
-                .header {
-                    text-align: center;
-                    margin-bottom: 20px;
-                }
-                
-                .detail {
-                    font-size: 20px;
-                }
             </style>
             
             <body>
-                <h1 class=\"header\">
-                    รายงานการแจ้งซ่อม ประจำเดือน ". getMonth($month) ."
-                </h1>
-                <h2 class=\"detail\">
-                    พิมพ์วันที่: ". date('d/m/Y') ." เวลา: ". date('H:i:s') ." น.
-                </h2>
-                <h2 class=\"detail\">
-                    ออกโดย: ". $user_name ."
-                </h2>
+
+                <div class=\"header\">
+
+                    <img src=\"../../constant/Logo.png\" width='15%'/>
+
+                    <h3>
+                        FIX ME : ระบบแจ้งปัญหาการชำรุดของอุปกรณ์
+                    </h3>
+
+                    <h3>
+                        รายงานการแจ้งซ่อม ประจำเดือน ". getMonth($month) ."
+                    </h3>
+                </div>
+
+                <div class=\"detail\">
+                    <h4>
+                        พิมพ์โดย : ". $user_name ."
+                    </h4>
+
+                    <h4>
+                        วันที่พิมพ์ : ". date('d/m/Y') ." เวลา : ". date('H:i:s') ." น.
+                    </h4>
+                </div>
+
+                <hr style='width: 100%; margin-bottom: 20px;'>
+
                 <table style='width:100%;'>
                     <thead>
                         <tr>
@@ -56,21 +84,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        " . $row . "
+                        ". $row ."
                     <tbody>
                 </table>
+
             </body>
         ";
 
-        echo $reports;
+        // echo $reports;
     
-        // // Instantiate Mpdf Object
-        // $mpdf = new \Mpdf\Mpdf();
+        // Instantiate Mpdf Object
+        $mpdf = new \Mpdf\Mpdf();
 
-        // // Write PDF file with HTML
-        // $mpdf->WriteHTML($reports);
+        // Write PDF file with HTML
+        $mpdf->WriteHTML($reports);
 
-        // // Save PDF file with force download 
-        // $mpdf->Output('Reports '. date('Y-m-d H-i-s') .'.pdf', 'D');
+        // Save PDF file with force download 
+        $mpdf->Output('Reports '. date('Y-m-d H-i-s') .'.pdf', 'D');
     }
 ?>
